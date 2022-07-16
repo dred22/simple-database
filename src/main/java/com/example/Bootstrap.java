@@ -7,13 +7,10 @@ import com.example.reposiroty.GuideRepository;
 import com.example.reposiroty.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.Optional;
 
 
 @Component
@@ -51,24 +48,24 @@ public class Bootstrap implements CommandLineRunner {
     private void createStudentsAndGides(){
 
         Student student = new Student();
-        student.setEnrollmentId("fist");
+        student.setRegistrationNumber("fist");
         student.setName("Ali");
         //student.setGuide(guide);
 
         Student student2 = new Student();
-        student2.setEnrollmentId("second");
+        student2.setRegistrationNumber("second");
         student2.setName("Baga");
         Student save = studentRepository.save(student);
         Student save1 = studentRepository.save(student2);
         Guide guide = new Guide();
         guide.setName("Gide1");
         guide.setSalary(500);
-        guide.setStaffId("Staff one");
+        guide.setBadge("Staff one");
 
         Guide guide2 = new Guide();
         guide2.setName("Gide1");
         guide2.setSalary(500);
-        guide2.setStaffId("Staff one");
+        guide2.setBadge("Staff one");
         guide2.getStudents().add(student);
 
         Guide save2 = guideRepository.save(guide);

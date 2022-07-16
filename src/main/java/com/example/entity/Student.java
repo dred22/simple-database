@@ -17,8 +17,8 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Column(name = "enrollment_id")
-    private String enrollmentId;
+    @Column(name = "registration_number")
+    private String registrationNumber;
 
     @Column(name = "name")
     private String name;
@@ -36,11 +36,11 @@ public class Student {
 
         Student student = (Student) o;
 
-        return new EqualsBuilder().append(id, student.id).append(enrollmentId, student.enrollmentId).append(name, student.name).isEquals();
+        return new EqualsBuilder().append(id, student.id).append(registrationNumber, student.registrationNumber).append(name, student.name).isEquals();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(id).append(enrollmentId).append(name).toHashCode();
+        return new HashCodeBuilder(17, 37).append(id).append(registrationNumber).append(name).toHashCode();
     }
 }

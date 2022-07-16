@@ -24,7 +24,7 @@ public class Guide {
     private Integer salary;
 
     @Column(name = "staff_id")
-    private String staffId;
+    private String badge;
 
     @ToString.Exclude
     @OneToMany(mappedBy = "guide", cascade = CascadeType.PERSIST)
@@ -38,11 +38,11 @@ public class Guide {
 
         Guide guide = (Guide) o;
 
-        return new EqualsBuilder().append(id, guide.id).append(name, guide.name).append(salary, guide.salary).append(staffId, guide.staffId).isEquals();
+        return new EqualsBuilder().append(id, guide.id).append(name, guide.name).append(salary, guide.salary).append(badge, guide.badge).isEquals();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(id).append(name).append(salary).append(staffId).toHashCode();
+        return new HashCodeBuilder(17, 37).append(id).append(name).append(salary).append(badge).toHashCode();
     }
 }
