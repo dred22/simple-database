@@ -8,13 +8,16 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @Getter
 @Setter
 @ToString
 public class Guide {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="generator", sequenceName="guide_id_seq")
+    @GeneratedValue(strategy=SEQUENCE, generator="generator")
     private Integer id;
 
     @Column(name = "name")

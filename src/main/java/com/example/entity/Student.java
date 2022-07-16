@@ -8,13 +8,16 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
 
+import static javax.persistence.GenerationType.SEQUENCE;
+
 @Entity
 @Getter
 @Setter
 @ToString
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name="generator", sequenceName="student_id_seq")
+    @GeneratedValue(strategy=SEQUENCE, generator="generator")
     private Integer id;
 
     @Column(name = "registration_number")
